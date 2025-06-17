@@ -1,9 +1,5 @@
-version: "3.9"
-
 services:
-
   # ========== EXECUTION CLIENTS ==========
-
   el_geth1:
     container_name: el_geth1
     image: ethereum/client-go:stable
@@ -77,9 +73,7 @@ services:
       --networkid 12345
       --nodiscover
     networks: [ethnet]
-
   # ========== CONSENSUS + VALIDATOR CLIENTS ==========
-
   cl_lighthouse1:
     container_name: cl_lighthouse1
     image: sigp/lighthouse:latest
