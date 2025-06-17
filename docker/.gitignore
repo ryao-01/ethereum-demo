@@ -1,0 +1,14 @@
+# Geth node data
+geth/geth1/
+geth/geth2/
+geth/geth3/
+geth/geth4/
+
+# Lighthouse node data (except testnet config)
+lighthouse/cl_lighthouse1/
+lighthouse/cl_lighthouse2/
+lighthouse/cl_lighthouse3/
+lighthouse/cl_lighthouse4/
+
+# JWT secrets (optional)
+#secrets/
