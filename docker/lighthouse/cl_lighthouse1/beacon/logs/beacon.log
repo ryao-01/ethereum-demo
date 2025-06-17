@@ -1,0 +1,111 @@
+Jun 17 21:33:37.855 INFO Logging to file, path: "/data/beacon/logs/beacon.log", module: environment:311
+Jun 17 21:33:37.858 INFO Lighthouse started, version: Lighthouse/v7.0.1-999b045, module: lighthouse:721
+Jun 17 21:33:37.858 INFO Configured for network, name: custom (/data/testnet), module: lighthouse:722
+Jun 17 21:33:37.868 INFO Data directory initialised, datadir: /data, module: beacon_node::config:108
+Jun 17 21:33:37.878 INFO Deposit contract, address: 0x00000000219ab540356cbb839cbe05303d7705fa, deploy_block: 0, module: beacon_node::config:527
+Jun 17 21:33:37.952 INFO Blob DB initialized, oldest_data_column_slot: None, oldest_blob_slot: Some(Slot(0)), path: "/data/beacon/blobs_db", service: freezer_db, module: store::hot_cold_store:360
+Jun 17 21:33:37.952 DEBG Loaded execution endpoint, jwt_path: "/jwt.hex", endpoint: http://el_geth1:8551/, service: exec, module: execution_layer:521
+Jun 17 21:33:40.725 INFO Starting checkpoint sync, remote_url: http://bootstrap-node:5052/, service: beacon, module: client::builder:386
+Jun 17 21:33:40.730 DEBG Downloading deposit snapshot, service: beacon, module: client::builder:409
+Jun 17 21:33:40.735 WARN Remote BN does not support EIP-4881 fast deposit sync, error: Error fetching deposit snapshot from remote: HttpClient(url: http://bootstrap-node:5052/, kind: request, detail: error trying to connect: dns error: failed to lookup address information: Name or service not known), service: beacon, module: client::builder:438
+Jun 17 21:33:40.735 DEBG Downloading finalized state, service: beacon, module: client::builder:450
+Jun 17 21:33:40.743 CRIT Failed to start beacon node, reason: Error loading checkpoint state from remote: HttpClient(url: http://bootstrap-node:5052/, kind: request, detail: error trying to connect: dns error: failed to lookup address information: Name or service not known), module: lighthouse:762
+Jun 17 21:33:40.743 INFO Internal shutdown received, reason: Failed to start beacon node, module: environment:470
+Jun 17 21:33:40.743 INFO Shutting down.., reason: Failure("Failed to start beacon node"), module: lighthouse:784
+Jun 17 21:37:38.035 INFO Logging to file, path: "/data/beacon/logs/beacon.log", module: environment:311
+Jun 17 21:37:38.042 INFO Lighthouse started, version: Lighthouse/v7.0.1-999b045, module: lighthouse:721
+Jun 17 21:37:38.042 INFO Configured for network, name: custom (/data/testnet), module: lighthouse:722
+Jun 17 21:37:38.065 INFO Data directory initialised, datadir: /data, module: beacon_node::config:108
+Jun 17 21:37:38.078 INFO Deposit contract, address: 0x00000000219ab540356cbb839cbe05303d7705fa, deploy_block: 0, module: beacon_node::config:527
+Jun 17 21:37:38.168 INFO Blob DB initialized, oldest_data_column_slot: None, oldest_blob_slot: Some(Slot(0)), path: "/data/beacon/blobs_db", service: freezer_db, module: store::hot_cold_store:360
+Jun 17 21:37:38.168 DEBG Attempting schema migration, to_version: 22, from_version: 22, service: freezer_db, module: store::hot_cold_store:372
+Jun 17 21:37:38.168 DEBG Loaded execution endpoint, jwt_path: "/jwt.hex", endpoint: http://el_geth1:8551/, service: exec, module: execution_layer:521
+Jun 17 21:37:43.673 INFO Starting from known genesis state, service: beacon, module: client::builder:298
+Jun 17 21:37:43.718 CRIT Failed to start beacon node, reason: Syncing from genesis is insecure and incompatible with data availability checks. You should instead perform a checkpoint sync from a trusted node using the --checkpoint-sync-url option. For a list of public endpoints, see: https://eth-clients.github.io/checkpoint-sync-endpoints/ Alternatively, use --allow-insecure-genesis-sync if the risks are understood., module: lighthouse:762
+Jun 17 21:37:43.718 INFO Internal shutdown received, reason: Failed to start beacon node, module: environment:470
+Jun 17 21:37:43.718 INFO Shutting down.., reason: Failure("Failed to start beacon node"), module: lighthouse:784
+Jun 17 21:38:28.112 INFO Logging to file, path: "/data/beacon/logs/beacon.log", module: environment:311
+Jun 17 21:38:28.124 INFO Lighthouse started, version: Lighthouse/v7.0.1-999b045, module: lighthouse:721
+Jun 17 21:38:28.124 INFO Configured for network, name: custom (/data/testnet), module: lighthouse:722
+Jun 17 21:38:28.137 INFO Data directory initialised, datadir: /data, module: beacon_node::config:108
+Jun 17 21:38:28.146 INFO Deposit contract, address: 0x00000000219ab540356cbb839cbe05303d7705fa, deploy_block: 0, module: beacon_node::config:527
+Jun 17 21:38:28.252 INFO Blob DB initialized, oldest_data_column_slot: None, oldest_blob_slot: Some(Slot(0)), path: "/data/beacon/blobs_db", service: freezer_db, module: store::hot_cold_store:360
+Jun 17 21:38:28.252 DEBG Attempting schema migration, to_version: 22, from_version: 22, service: freezer_db, module: store::hot_cold_store:372
+Jun 17 21:38:28.253 DEBG Loaded execution endpoint, jwt_path: "/jwt.hex", endpoint: http://el_geth1:8551/, service: exec, module: execution_layer:521
+Jun 17 21:38:34.901 INFO Starting from known genesis state, service: beacon, module: client::builder:298
+Jun 17 21:38:34.952 DEBG Cached state, slot: 0, state_root: 0x392a2c7690faf02a0d8795a5c7342bfb39ec142ac15b5f71bb2b2373db0cc2b0, deleted_states: [], location: store_hot_state, service: freezer_db, module: store::hot_cold_store:1492
+Jun 17 21:38:34.974 INFO Block production enabled, method: json rpc via http, endpoint: Auth { endpoint: "http://el_geth1:8551/", jwt_path: "/jwt.hex", jwt_id: None, jwt_version: None }, module: beacon_node:151
+Jun 17 21:38:34.984 WARN Invalid execution chain ID. Please switch to correct chain ID on endpoint, received: Mainnet, expected: Custom(1337), endpoint: http://el_geth1:8551/, auth=true, service: deposit_contract_rpc, module: eth1::service:96
+Jun 17 21:38:34.984 ERRO Error updating deposit contract cache, error: Invalid endpoint state: WrongChainId, retry_millis: 60000, service: deposit_contract_rpc, module: eth1::service:729
+Jun 17 21:38:36.729 INFO Beacon chain initialized, head_slot: 0, head_block: 0x61f60b4b3f393da47bc5f4c9eafa75eb6d7939f229dbb89ccd97f51acadcafbb, head_state: 0x392a2c7690faf02a0d8795a5c7342bfb39ec142ac15b5f71bb2b2373db0cc2b0, service: beacon, module: beacon_chain::builder:1079
+Jun 17 21:38:36.729 INFO Timer service started, service: node_timer, module: timer:31
+Jun 17 21:38:36.730 DEBG Blobs are pruned, start_epoch: 0, end_epoch: 0, split_slot: 0, data_availability_boundary: 4553706, oldest_blob_slot: 0, service: freezer_db, module: store::hot_cold_store:2894
+Jun 17 21:38:36.730 INFO UPnP Attempting to initialise routes, module: network::service:241
+Jun 17 21:38:36.730 DEBG Current fork, fork_name: Electra, module: network::service:274
+Jun 17 21:38:36.731 DEBG New network key generated and written to disk, service: libp2p, module: lighthouse_network::service::utils:137
+Jun 17 21:38:36.732 DEBG ENR written to disk, service: libp2p, module: lighthouse_network::discovery::enr:323
+Jun 17 21:38:36.732 DEBG Metadata sequence number, seq_num: 0, service: libp2p, module: lighthouse_network::service::utils:230
+Jun 17 21:38:36.732 DEBG Metadata written to disk, service: libp2p, module: lighthouse_network::service::utils:291
+Jun 17 21:38:36.733 DEBG Using inbound rate limiting params, config: InboundRateLimiterConfig(RateLimiterConfig { ping: 2/10s, metadata: 2/5s, status: 5/15s, goodbye: 1/10s, blocks_by_range: 128/10s, blocks_by_root: 128/10s, blobs_by_range: 896/10s, blobs_by_root: 896/10s, data_columns_by_range: 5120/10s, data_columns_by_root: 512/10s }), service: libp2p_rpc, service: libp2p, module: lighthouse_network::rpc:183
+Jun 17 21:38:36.733 DEBG Using self rate limiting params, config: OutboundRateLimiterConfig(RateLimiterConfig { ping: 2/10s, metadata: 2/5s, status: 5/15s, goodbye: 1/10s, blocks_by_range: 128/10s, blocks_by_root: 128/10s, blobs_by_range: 896/10s, blobs_by_root: 896/10s, data_columns_by_range: 5120/10s, data_columns_by_root: 512/10s }), service: libp2p_rpc, service: libp2p, module: lighthouse_network::rpc::self_limiter:59
+Jun 17 21:38:36.733 INFO ENR Initialised, quic6: None, quic4: Some(9001), udp6: None, tcp6: None, tcp4: Some(9000), udp4: None, ip4: None, id: 0x79bb..5b96, seq: 1, enr: enr:-M64QCpk21msr5s4-HPQdLhfltqm4pZE50xNro4gYi8OY5rURkpUYmCQZArxjG-w6RpwUSmiWE_XRL9qZz85066JkqABh2F0dG5ldHOIAAAAAAAAAACGY2xpZW500YpMaWdodGhvdXNlhTcuMC4xhGV0aDKQX9RHm2AAAAD__________4JpZIJ2NIRxdWljgiMpiXNlY3AyNTZrMaECBbLpsPiZNqm-9pN8VZEmMJnWs_bQA0wNCdTU206UvruIc3luY25ldHMAg3RjcIIjKA, service: libp2p, module: lighthouse_network::discovery:219
+Jun 17 21:38:36.733 DEBG Discovery service started, service: libp2p, module: lighthouse_network::discovery:260
+Jun 17 21:38:36.733 DEBG Starting a peer discovery request, target_peers: 16, service: libp2p, module: lighthouse_network::discovery:361
+Jun 17 21:38:36.735 INFO Libp2p Starting, bandwidth_config: 3-Average, peer_id: 16Uiu2HAkuovFT1UsDRFVaspUa3Ebi9D9aHmChARixiHBfpMr2Wvn, service: libp2p, module: lighthouse_network::service:519
+Jun 17 21:38:36.735 DEBG Attempting to open listening ports, quic_enabled: true, discovery_enabled: true, ip4_address: 0.0.0.0, disc4_port: 9000, quic4_port: 9001, tcp4_port: 9000, service: libp2p, module: lighthouse_network::service:520
+Jun 17 21:38:36.735 INFO Listening established, address: /ip4/0.0.0.0/tcp/9000/p2p/16Uiu2HAkuovFT1UsDRFVaspUa3Ebi9D9aHmChARixiHBfpMr2Wvn, service: libp2p, module: lighthouse_network::service:534
+Jun 17 21:38:36.736 INFO Listening established, address: /ip4/0.0.0.0/udp/9001/quic-v1/p2p/16Uiu2HAkuovFT1UsDRFVaspUa3Ebi9D9aHmChARixiHBfpMr2Wvn, service: libp2p, module: lighthouse_network::service:534
+Jun 17 21:38:36.736 DEBG Loading peers into the routing table, peers: 0, module: network::service:292
+Jun 17 21:38:36.736 DEBG Sync Manager started, service: sync, module: network::sync::manager:283
+Jun 17 21:38:36.736 DEBG Network message router started, module: network::router:144
+Jun 17 21:38:36.737 DEBG Subscribed to topic, topic: /eth2/5fd4479b/beacon_attestation_30/ssz_snappy, service: libp2p, module: lighthouse_network::service:801
+Jun 17 21:38:36.737 DEBG Sync's view on execution engine state updated, new_state: Offline, past_state: Online, service: sync, module: network::sync::network_context:897
+Jun 17 21:38:36.737 DEBG ENR written to disk, service: libp2p, module: lighthouse_network::discovery::enr:323
+Jun 17 21:38:36.737 DEBG Metadata written to disk, service: libp2p, module: lighthouse_network::service::utils:291
+Jun 17 21:38:36.737 DEBG Starting a new peer discovery query, wanted: 110, outbound: 0, target: 100, connected: 0, service: libp2p, module: lighthouse_network::peer_manager:977
+Jun 17 21:38:36.738 DEBG Starting grouped subnet query, subnets: [SubnetQuery { subnet: Attestation(SubnetId(30)), min_ttl_secs: None, retries: 0 }, SubnetQuery { subnet: Attestation(SubnetId(31)), min_ttl_secs: None, retries: 0 }], service: libp2p, module: lighthouse_network::discovery:766
+Jun 17 21:38:36.738 DEBG Updating gossipsub score parameters, active_validators: 16384, service: libp2p, module: lighthouse_network::service:938
+Jun 17 21:38:36.738 DEBG Subscribed to topic, topic: /eth2/5fd4479b/beacon_attestation_31/ssz_snappy, service: libp2p, module: lighthouse_network::service:801
+Jun 17 21:38:36.738 INFO HTTP API started, listen_address: 127.0.0.1:5052, module: http_api:5046
+Jun 17 21:38:36.739 DEBG Metrics server is disabled, module: client::builder:861
+Jun 17 21:38:36.739 DEBG ENR written to disk, service: libp2p, module: lighthouse_network::discovery::enr:323
+Jun 17 21:38:36.739 DEBG Metadata written to disk, service: libp2p, module: lighthouse_network::service::utils:291
+Jun 17 21:38:36.739 DEBG Discovery query yielded no results., service: libp2p, module: lighthouse_network::discovery:834
+Jun 17 21:38:36.739 DEBG Grouped subnet discovery query yielded no results., subnets_searched_for: [Attestation(SubnetId(30)), Attestation(SubnetId(31))], service: libp2p, module: lighthouse_network::discovery:858
+Jun 17 21:38:36.739 DEBG Discv5 event stream ready, service: libp2p, module: lighthouse_network::discovery:1023
+Jun 17 21:38:36.741 DEBG Sync's view on execution engine state updated, new_state: Online, past_state: Offline, service: sync, module: network::sync::network_context:897
+Jun 17 21:38:36.742 DEBG Execution engine upcheck complete, state: Syncing, service: exec, module: execution_layer::engines:329
+Jun 17 21:38:36.742 DEBG Execution engine upcheck complete, state: Syncing, service: exec, module: execution_layer::engines:329
+Jun 17 21:38:42.733 DEBG Starting grouped subnet query, subnets: [SubnetQuery { subnet: Attestation(SubnetId(30)), min_ttl_secs: None, retries: 1 }, SubnetQuery { subnet: Attestation(SubnetId(31)), min_ttl_secs: None, retries: 1 }], service: libp2p, module: lighthouse_network::discovery:766
+Jun 17 21:38:42.733 DEBG Grouped subnet discovery query yielded no results., subnets_searched_for: [Attestation(SubnetId(30)), Attestation(SubnetId(31))], service: libp2p, module: lighthouse_network::discovery:858
+Jun 17 21:38:43.733 DEBG Starting grouped subnet query, subnets: [SubnetQuery { subnet: Attestation(SubnetId(30)), min_ttl_secs: None, retries: 2 }, SubnetQuery { subnet: Attestation(SubnetId(31)), min_ttl_secs: None, retries: 2 }], service: libp2p, module: lighthouse_network::discovery:766
+Jun 17 21:38:43.734 DEBG Grouped subnet discovery query yielded no results., subnets_searched_for: [Attestation(SubnetId(30)), Attestation(SubnetId(31))], service: libp2p, module: lighthouse_network::discovery:858
+Jun 17 21:38:44.734 DEBG Starting grouped subnet query, subnets: [SubnetQuery { subnet: Attestation(SubnetId(30)), min_ttl_secs: None, retries: 3 }, SubnetQuery { subnet: Attestation(SubnetId(31)), min_ttl_secs: None, retries: 3 }], service: libp2p, module: lighthouse_network::discovery:766
+Jun 17 21:38:44.734 DEBG Grouped subnet discovery query yielded no results., subnets_searched_for: [Attestation(SubnetId(30)), Attestation(SubnetId(31))], service: libp2p, module: lighthouse_network::discovery:858
+Jun 17 21:38:44.734 DEBG Subnet peer discovery did not find sufficient peers. Reached max retry limit, service: libp2p, module: lighthouse_network::discovery:645
+Jun 17 21:38:44.734 DEBG Subnet peer discovery did not find sufficient peers. Reached max retry limit, service: libp2p, module: lighthouse_network::discovery:645
+Jun 17 21:38:45.000 DEBG Refused to advance head state, current_slot: 145849688, head_slot: 0, service: state_advance, module: beacon_chain::state_advance_timer:197
+Jun 17 21:38:46.733 INFO Could not UPnP map Discovery port, error: Gateway does not support UPnP, module: network::service:245
+Jun 17 21:38:46.739 INFO UPnP not available, service: libp2p, module: lighthouse_network::service:1801
+Jun 17 21:38:48.000 DEBG Running beacon chain per slot tasks, slot: Slot(145849689), service: beacon, module: beacon_chain::beacon_chain:6711
+Jun 17 21:38:48.743 DEBG Execution engine upcheck complete, state: Syncing, service: exec, module: execution_layer::engines:329
+Jun 17 21:38:52.001 DEBG Simulating unagg. attestation production, service: beacon, module: beacon_chain::attestation_simulator:39
+Jun 17 21:38:54.001 WARN Low peer count, peer_count: 0, service: slot_notifier, module: client::notifier:171
+Jun 17 21:38:54.001 DEBG Slot timer, sync_state: Stalled, current_slot: 145849689, head_slot: 0, head_block: 0x61f60b4b3f393da47bc5f4c9eafa75eb6d7939f229dbb89ccd97f51acadcafbb, finalized_epoch: 0, finalized_root: 0x61f60b4b3f393da47bc5f4c9eafa75eb6d7939f229dbb89ccd97f51acadcafbb, peers: 0, service: slot_notifier, module: client::notifier:174
+Jun 17 21:38:54.001 INFO Searching for peers, current_slot: 145849689, head_slot: 0, finalized_epoch: 0, finalized_root: 0x61f60b4b3f393da47bc5f4c9eafa75eb6d7939f229dbb89ccd97f51acadcafbb, peers: 0, service: slot_notifier, module: client::notifier:303
+Jun 17 21:38:54.001 DEBG Eth1 cache sync status, ready: false, voting_target_timestamp: 1750155324, latest_cached_timestamp: None, latest_cached_block_number: None, eth1_head_block: None, service: slot_notifier, module: client::notifier:735
+Jun 17 21:38:54.001 WARN Syncing deposit contract block cache, est_blocks_remaining: initializing deposits, service: slot_notifier, module: client::notifier:757
+Jun 17 21:38:54.001 WARN Not ready Bellatrix, info: The execution endpoint is connected and configured, however it is not yet synced, service: slot_notifier, module: client::notifier:406
+Jun 17 21:38:56.001 DEBG Proposer prepare routine firing, service: beacon, module: beacon_chain::proposer_prep_service:41
+Jun 17 21:38:57.001 DEBG Refused to advance head state, current_slot: 145849689, head_slot: 0, service: state_advance, module: beacon_chain::state_advance_timer:197
+Jun 17 21:39:00.000 DEBG Running beacon chain per slot tasks, slot: Slot(145849690), service: beacon, module: beacon_chain::beacon_chain:6711
+Jun 17 21:39:00.744 DEBG Execution engine upcheck complete, state: Syncing, service: exec, module: execution_layer::engines:329
+Jun 17 21:39:04.001 DEBG Simulating unagg. attestation production, service: beacon, module: beacon_chain::attestation_simulator:39
+Jun 17 21:39:05.196 INFO Shutting down.., reason: Success("Received SIGTERM"), module: lighthouse:784
+Jun 17 21:39:05.197 DEBG Async task shutdown, exit received, task: eth1, service: deposit_contract_rpc, module: task_executor:266
+Jun 17 21:39:05.197 DEBG Async task shutdown, exit received, task: timer, service: node_timer, module: task_executor:266
+Jun 17 21:39:05.197 DEBG Async task shutdown, exit received, task: discv5, module: task_executor:266
+Jun 17 21:39:05.197 DEBG Persisting DHT to store, Number of peers: 0, service: network, module: network::service:965
+Jun 17 21:39:05.197 INFO Saved DHT state, service: network, module: network::service:980
+Jun 17 21:39:05.197 INFO Network service shutdown, service: network, module: network::service:985
+Jun 17 21:39:05.199 INFO Saved beacon chain to disk, service: beacon, module: beacon_chain::beacon_chain:7389

@@ -1,0 +1,157 @@
+version: "3.9"
+
+services:
+
+  # ========== EXECUTION CLIENTS ==========
+
+  el_geth1:
+    container_name: el_geth1
+    image: ethereum/client-go:stable
+    volumes:
+      - ./geth/geth1:/data
+      - ./secrets/jwt.hex:/jwt.hex
+    command: >
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8545
+      --http.api eth,net,web3
+      --datadir /data
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8551
+      --authrpc.vhosts=*
+      --authrpc.jwtsecret /jwt.hex
+      --networkid 12345
+      --nodiscover
+    networks: [ethnet]
+
+  el_geth2:
+    container_name: el_geth2
+    image: ethereum/client-go:stable
+    volumes:
+      - ./geth/geth2:/data
+      - ./secrets/jwt.hex:/jwt.hex
+    command: > 
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8546
+      --datadir /data
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8552
+      --authrpc.jwtsecret /jwt.hex
+      --networkid 12345
+      --nodiscover
+    networks: [ethnet]
+
+  el_geth3:
+    container_name: el_geth3
+    image: ethereum/client-go:stable
+    volumes:
+      - ./geth/geth3:/data
+      - ./secrets/jwt.hex:/jwt.hex
+    command: > 
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8547
+      --datadir /data
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8553
+      --authrpc.jwtsecret /jwt.hex
+      --networkid 12345
+      --nodiscover
+    networks: [ethnet]
+
+  el_geth4:
+    container_name: el_geth4
+    image: ethereum/client-go:stable
+    volumes:
+      - ./geth/geth4:/data
+      - ./secrets/jwt.hex:/jwt.hex
+    command: > 
+      --http
+      --http.addr 0.0.0.0
+      --http.port 8548
+      --datadir /data
+      --authrpc.addr 0.0.0.0
+      --authrpc.port 8554
+      --authrpc.jwtsecret /jwt.hex
+      --networkid 12345
+      --nodiscover
+    networks: [ethnet]
+
+  # ========== CONSENSUS + VALIDATOR CLIENTS ==========
+
+  cl_lighthouse1:
+    container_name: cl_lighthouse1
+    image: sigp/lighthouse:latest
+    depends_on: [el_geth1]
+    volumes:
+      - ./lighthouse/cl_lighthouse1:/data
+      - ./secrets/jwt.hex:/jwt.hex
+      - ./lighthouse/testnet:/data/testnet
+    command: >
+      lighthouse bn
+      --testnet-dir=/data/testnet 
+      --datadir /data
+      --execution-endpoint http://el_geth1:8551
+      --execution-jwt /jwt.hex
+      --allow-insecure-genesis-sync
+      --http
+    networks: [ethnet]
+
+  cl_lighthouse2:
+    container_name: cl_lighthouse2
+    image: sigp/lighthouse:latest
+    depends_on: [el_geth2]
+    volumes:
+      - ./lighthouse/cl_lighthouse2:/data
+      - ./secrets/jwt.hex:/jwt.hex
+      - ./lighthouse/testnet:/data/testnet
+    command: >
+      lighthouse bn
+      --testnet-dir=/data/testnet 
+      --datadir /data
+      --execution-endpoint http://el_geth2:8552
+      --execution-jwt /jwt.hex
+      --allow-insecure-genesis-sync
+      --http
+    networks: [ethnet]
+
+  cl_lighthouse3:
+    container_name: cl_lighthouse3
+    image: sigp/lighthouse:latest
+    depends_on: [el_geth3]
+    volumes:
+      - ./lighthouse/cl_lighthouse3:/data
+      - ./secrets/jwt.hex:/jwt.hex
+      - ./lighthouse/testnet:/data/testnet
+    command: >
+      lighthouse bn
+      --testnet-dir=/data/testnet 
+      --datadir /data
+      --execution-endpoint http://el_geth3:8553
+      --execution-jwt /jwt.hex
+      --allow-insecure-genesis-sync
+      --http
+    networks: [ethnet]
+
+  cl_lighthouse4:
+    container_name: cl_lighthouse4
+    image: sigp/lighthouse:latest
+    depends_on: [el_geth4]
+    volumes:
+      - ./lighthouse/cl_lighthouse4:/data
+      - ./secrets/jwt.hex:/jwt.hex
+      - ./lighthouse/testnet:/data/testnet
+    command: >
+      lighthouse bn
+      --testnet-dir=/data/testnet 
+      --datadir /data
+      --execution-endpoint http://el_geth4:8554
+      --execution-jwt /jwt.hex
+      --allow-insecure-genesis-sync
+      --http
+    networks: [ethnet]
+
+networks:
+  ethnet:
+    driver: bridge
