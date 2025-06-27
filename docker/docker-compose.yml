@@ -6,6 +6,9 @@ services:
     volumes:
       - ./geth/geth1:/data
       - ./secrets/jwt.hex:/jwt.hex
+      - ./genesis.json:/genesis.json:ro
+      - ./entrypoint-geth.sh:/entrypoint-geth.sh
+    entrypoint: ["/entrypoint-geth.sh"]
     command: >
       --http
       --http.addr 0.0.0.0
@@ -16,9 +19,11 @@ services:
       --authrpc.port 8551
       --authrpc.vhosts=*
       --authrpc.jwtsecret /jwt.hex
-      --networkid 12345
-      --nodiscover
-    networks: [ethnet]
+      --networkid 1337
+      --port 30303
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.10
 
   el_geth2:
     container_name: el_geth2
@@ -26,6 +31,9 @@ services:
     volumes:
       - ./geth/geth2:/data
       - ./secrets/jwt.hex:/jwt.hex
+      - ./genesis.json:/genesis.json:ro
+      - ./entrypoint-geth.sh:/entrypoint-geth.sh
+    entrypoint: ["/entrypoint-geth.sh"]
     command: > 
       --http
       --http.addr 0.0.0.0
@@ -34,9 +42,12 @@ services:
       --authrpc.addr 0.0.0.0
       --authrpc.port 8552
       --authrpc.jwtsecret /jwt.hex
-      --networkid 12345
-      --nodiscover
-    networks: [ethnet]
+      --networkid 1337
+      --port 30303
+      --bootnodes enode://d5738ec16607edf37cecda790879f871236dbfa695ee11c3a4e15450c593faed7dd3d6e39ae5e3ec4fc4011f8768a905fb599677edfe7ffeea2a619d7bda25a1@172.25.0.10:30303
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.11
 
   el_geth3:
     container_name: el_geth3
@@ -44,6 +55,9 @@ services:
     volumes:
       - ./geth/geth3:/data
       - ./secrets/jwt.hex:/jwt.hex
+      - ./genesis.json:/genesis.json:ro
+      - ./entrypoint-geth.sh:/entrypoint-geth.sh
+    entrypoint: ["/entrypoint-geth.sh"]
     command: > 
       --http
       --http.addr 0.0.0.0
@@ -52,9 +66,12 @@ services:
       --authrpc.addr 0.0.0.0
       --authrpc.port 8553
       --authrpc.jwtsecret /jwt.hex
-      --networkid 12345
-      --nodiscover
-    networks: [ethnet]
+      --networkid 1337
+      --port 30303
+      --bootnodes enode://d5738ec16607edf37cecda790879f871236dbfa695ee11c3a4e15450c593faed7dd3d6e39ae5e3ec4fc4011f8768a905fb599677edfe7ffeea2a619d7bda25a1@172.25.0.10:30303
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.12
 
   el_geth4:
     container_name: el_geth4
@@ -62,6 +79,9 @@ services:
     volumes:
       - ./geth/geth4:/data
       - ./secrets/jwt.hex:/jwt.hex
+      - ./genesis.json:/genesis.json:ro
+      - ./entrypoint-geth.sh:/entrypoint-geth.sh
+    entrypoint: ["/entrypoint-geth.sh"]
     command: > 
       --http
       --http.addr 0.0.0.0
@@ -70,9 +90,12 @@ services:
       --authrpc.addr 0.0.0.0
       --authrpc.port 8554
       --authrpc.jwtsecret /jwt.hex
-      --networkid 12345
-      --nodiscover
-    networks: [ethnet]
+      --networkid 1337
+      --port 30303
+      --bootnodes enode://d5738ec16607edf37cecda790879f871236dbfa695ee11c3a4e15450c593faed7dd3d6e39ae5e3ec4fc4011f8768a905fb599677edfe7ffeea2a619d7bda25a1@172.25.0.10:30303
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.13
   # ========== CONSENSUS + VALIDATOR CLIENTS ==========
   cl_lighthouse1:
     container_name: cl_lighthouse1
@@ -90,7 +113,9 @@ services:
       --execution-jwt /jwt.hex
       --allow-insecure-genesis-sync
       --http
-    networks: [ethnet]
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.20
 
   cl_lighthouse2:
     container_name: cl_lighthouse2
@@ -108,7 +133,9 @@ services:
       --execution-jwt /jwt.hex
       --allow-insecure-genesis-sync
       --http
-    networks: [ethnet]
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.21
 
   cl_lighthouse3:
     container_name: cl_lighthouse3
@@ -126,7 +153,9 @@ services:
       --execution-jwt /jwt.hex
       --allow-insecure-genesis-sync
       --http
-    networks: [ethnet]
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.23
 
   cl_lighthouse4:
     container_name: cl_lighthouse4
@@ -144,8 +173,13 @@ services:
       --execution-jwt /jwt.hex
       --allow-insecure-genesis-sync
       --http
-    networks: [ethnet]
-
+    networks:
+      ethnet:
+        ipv4_address: 172.25.0.24
 networks:
   ethnet:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
+
